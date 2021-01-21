@@ -1,0 +1,13 @@
+{
+    "name": "Locacao",
+    "alias": "locacao",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Locacao\\Providers\\LocacaoServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

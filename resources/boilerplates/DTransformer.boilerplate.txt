@@ -1,0 +1,36 @@
+{
+   "name": "comando customizado para gerar Transformer By diuliano",
+   "out": "Modules/{{$modulo}}/Transformers/{{ $name }}Transformer.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+
+namespace Modules\{{$modulo}}\Transformers;
+
+use League\Fractal\TransformerAbstract;
+use Modules\{{$modulo}}\Models\{{ $name }};
+
+/**
+ * Class {{ $name }}Transformer
+ * @package namespace Modules\{{$modulo}}\Transformers;
+ */
+class {{ $name }}Transformer extends TransformerAbstract
+{
+
+	/**
+	 * Transform the {{ $name }}Transformer entity
+	 * @param {{ $name }} $model
+	 *
+	 * @return array
+	 */
+	public function transform({{ $name }} $model)
+	{
+		return [
+			'id' => (int)$model->id,
+		];
+	}
+}

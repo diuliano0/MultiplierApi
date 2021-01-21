@@ -1,0 +1,13 @@
+{
+    "name": "Associacao",
+    "alias": "associacao",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Associacao\\Providers\\AssociacaoServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

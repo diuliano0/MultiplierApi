@@ -1,0 +1,29 @@
+{
+   "name": "comando customizado para gerar rotas By diuliano",
+   "out": "Modules/{{$modulo}}/Rotas/{{ $name }}Route.php",
+   "params": {
+        "modulo": "required"
+   }
+}
+---
+<?php
+
+    namespace Modules\{{$modulo}}\Rotas;
+
+	//use Modules\{{$modulo}}\Enuns\Rotina;
+	use App\Interfaces\ICustomRoute;
+    use \Route;
+
+class {{ $name }}Route implements ICustomRoute
+{
+    public static function run()
+    {
+		Route::group(["prefix"=>"admin","middleware" => ["auth:api"],"namespace"=>"Api\Admin"],function () {
+			Route::resource("{{ strtolower($name) }}", "{{ $name }}Controller",
+				[
+					//"middleware" => [Rotina::middlewareForm("possuiRotina", Rotina::GERENCIAR_PROFISSIONAL_SAUDE)],
+					"except" => ["create", "edit"]
+				]);
+		});
+	}
+}

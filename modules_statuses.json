@@ -1,0 +1,12 @@
+{
+    "Novo": true,
+    "Core": true,
+    "Localidade": true,
+    "Financeiro": true,
+    "Saude": true,
+    "Loja": true,
+    "GameWards": true,
+    "Teste": true,
+    "Locacao": true,
+    "Associacao": true
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Localidade",
+    "alias": "localidade",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Localidade\\Providers\\LocalidadeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

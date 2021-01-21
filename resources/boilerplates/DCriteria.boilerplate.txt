@@ -1,0 +1,22 @@
+{
+   "name": "comando customizado para gerar criteria By diuliano",
+   "out": "Modules/{{$modulo}}/Criteria/{{ $name }}Criteria.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+namespace Modules\{{$modulo}}\Criteria;
+
+use App\Criteria\BaseCriteria;
+
+/**
+ * Class {{ $name }}Criteria
+ * @package Modules\{{$modulo}}\Criteria;
+ */
+class {{ $name }}Criteria extends BaseCriteria
+{
+    protected $filterCriteria = [];
+}

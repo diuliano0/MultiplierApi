@@ -1,0 +1,46 @@
+{
+   "name": "comando customizado para gerar Controller By diuliano",
+   "out": "Modules/{{$modulo}}/Http/Controllers/Api/Admin/{{ $name }}Controller.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+namespace Modules\{{$modulo}}\Http\Controllers\Api\Admin;
+
+use Modules\{{$modulo}}\Criteria\{{ $name }}Criteria;
+use Modules\{{$modulo}}\Services\{{ $name }}Service;
+use Modules\{{$modulo}}\Http\Requests\{{ $name }}Request;
+use App\Http\Controllers\BaseController;
+use App\Interfaces\ICustomController;
+
+class {{ $name }}Controller extends BaseController implements ICustomController
+{
+
+	/**
+	 * @var {{ $name }}Criteria
+	 */
+	private ${{ strtolower($name) }}Criteria;
+
+	/**
+	 * @var {{ $name }}Service
+	 */
+	private ${{ strtolower($name) }}Service;
+
+	public function __construct({{ $name }}Service ${{ strtolower($name) }}Service, {{ $name }}Criteria ${{ strtolower($name) }}Criteria)
+	{
+		parent::__construct(${{ strtolower($name) }}Service->getDefaultRepository(), ${{ strtolower($name) }}Criteria);
+		$this->{{ strtolower($name) }}Criteria = ${{ strtolower($name) }}Criteria;
+		$this->{{ strtolower($name) }}Service = ${{ strtolower($name) }}Service;
+	}
+
+	public function getValidator()
+	{
+		return new {{ $name }}Request();
+	}
+
+
+}
+

@@ -1,0 +1,49 @@
+{
+   "name": "comando customizado para gerar Repositorio By diuliano",
+   "out": "Modules/{{$modulo}}/Repositories/{{ $name }}RepositoryEloquent.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+
+namespace Modules\{{$modulo}}\Repositories;
+
+
+use Modules\{{$modulo}}\Models\{{ $name }};
+use Modules\{{$modulo}}\Presenters\{{ $name }}Presenter;
+use App\Repositories\BaseRepository;
+use Prettus\Repository\Criteria\RequestCriteria;
+
+/**
+ * Class {{ $name }}RepositoryEloquent
+ * @package namespace Modules\{{$modulo}}\Repositories;
+ */
+class {{ $name }}RepositoryEloquent extends BaseRepository implements {{ $name }}Repository
+{
+    /**
+     * Specify Model class name
+     *
+     * @return string
+     */
+    public function model()
+    {
+        return {{ $name }}::class;
+    }
+
+    /**
+     * Boot up the repository, pushing criteria
+     */
+    public function boot()
+    {
+		parent::boot();
+        $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function presenter()
+	{
+		return {{ $name }}Presenter::class;
+	}
+}

@@ -1,0 +1,33 @@
+{
+   "name": "comando customizado para gerar Model By diuliano",
+   "out": "Modules/{{$modulo}}/Models/{{ $name }}.php",
+   "params": {
+        "modulo":"required",
+        "tabela":"optional",
+        "conexao":"optional",
+        "campos":"optional"
+   }
+}
+---
+<?php
+
+namespace Modules\{{$modulo}}\Models;
+
+use App\Models\BaseModel;
+
+class {{ $name }} extends BaseModel{
+
+@if($tabela)
+    protected $table = "{{ $tabela }}";
+@endif
+
+@if($conexao)
+	protected $connection = "{{ $conexao }}";
+@endif
+
+    protected $fillable = [
+    @if($campos)
+        "{!! implode('","',explode( ',',$campos)) !!}"
+    @endif
+    ];
+}

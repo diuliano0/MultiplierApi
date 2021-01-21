@@ -1,0 +1,45 @@
+{
+   "name": "comando customizado para gerar Service By diuliano",
+   "out": "Modules/{{$modulo}}/Services/{{ $name }}Service.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+namespace Modules\{{$modulo}}\Services;
+
+use Modules\{{$modulo}}\Repositories\{{ $name }}Repository;
+use App\Interfaces\IService;
+use App\Services\BaseService;
+use App\Traits\ResponseActions;
+
+class {{ $name }}Service extends BaseService implements IService
+{
+	use ResponseActions;
+
+	/**
+	 * @var {{ $name }}Repository
+	 */
+	private ${{ strtolower($name) }}Repository;
+
+	public function __construct({{ $name }}Repository ${{ strtolower($name) }}Repository)
+	{
+		$this->{{ strtolower($name) }}Repository = ${{ strtolower($name) }}Repository;
+	}
+
+	public function getDefaultRepository()
+	{
+		return $this->{{ strtolower($name) }}Repository;
+	}
+
+	public function get(int $id = null, bool $presenter = false)
+	{
+		if (is_null($id))
+			return $this->getDefaultRepository()->skipPresenter($presenter)->first();
+
+		return $this->getDefaultRepository()->skipPresenter($presenter)->find($id);
+
+	}
+}

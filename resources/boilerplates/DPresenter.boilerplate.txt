@@ -1,0 +1,33 @@
+{
+   "name": "comando customizado para gerar Transformer By diuliano",
+   "out": "Modules/{{$modulo}}/Presenters/{{ $name }}Presenter.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+
+namespace Modules\{{$modulo}}\Presenters;
+
+use Modules\{{$modulo}}\Transformers\{{ $name }}Transformer;
+use Prettus\Repository\Presenter\FractalPresenter;
+
+/**
+ * Class {{ $name }}Presenter
+ *
+ * @package namespace ;
+ */
+class {{ $name }}Presenter extends FractalPresenter
+{
+    /**
+     * Transformer
+     *
+     * @return \League\Fractal\TransformerAbstract
+     */
+    public function getTransformer()
+    {
+        return new {{ $name }}Transformer();
+    }
+}

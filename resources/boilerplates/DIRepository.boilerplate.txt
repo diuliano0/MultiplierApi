@@ -1,0 +1,22 @@
+{
+   "name": "comando customizado para gerar Interfaces de Repositorio By diuliano",
+   "out": "Modules/{{$modulo}}/Repositories/{{ $name }}Repository.php",
+   "params": {
+        "modulo":"required"
+   }
+}
+---
+<?php
+
+namespace Modules\{{$modulo}}\Repositories;
+
+use Prettus\Repository\Contracts\RepositoryInterface;
+
+/**
+ * Interface {{ $name }}Repository
+ * @package Modules\{{$modulo}}\Repositories;
+ */
+interface {{ $name }}Repository extends RepositoryInterface
+{
+
+}
